@@ -6,14 +6,12 @@ import Hero from './components/Hero';
 const App = () => {
   return (
     <>
-    <div className='image'>
-      <Header/>
-     
-    </div>
-    <Hero/>
-    <Hero/>
-    <Hero/>
-    <Hero/>
+      <div className='image'>
+        <Header />
+        <Hero />
+
+      </div>
+
     </>
   );
 };
