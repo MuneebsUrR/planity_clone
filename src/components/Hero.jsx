@@ -20,7 +20,7 @@ const Hero = () => {
                         className="w-full pt-5 p-3 rounded-md outline-none focus:border focus:border-black hover:bg-gray-100"
                     />
                 </div>
-                <div className="flex-1 mx-2 relative">
+                <div className="hidden md:block flex-1 mx-2 relative">
                     <label className="absolute top-1 pl-3 text-xs text-gray-400">Où</label>
                     <input
                         type="text"
