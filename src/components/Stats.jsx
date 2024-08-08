@@ -19,7 +19,7 @@ export default function Stats() {
             <h1 className='font-semibold text-3xl text-left'>
                 Découvrez la prise de RDV en ligne !
             </h1>
-            <div className='block sm:hidden overflow-x-auto whitespace-nowrap mt-10 gap-x-5'>
+            <div className='block sm:hidden overflow-x-auto whitespace-nowrap mt-10 space-x-4' style={{scrollbarWidth:'none'}}>
                 {stats.map((stat, index) => (
                     <div
                         key={index}
