@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Carousel from './components/Carousal';
 import bg from './assets/images/home-bg.jpg';
+import Press from './components/Press';
 
 const App = () => {
   const slides = [
@@ -19,6 +20,7 @@ const App = () => {
         <Hero />
       </div>
       <Carousel slides={slides} />
+      <Press/>
     </>
   );
 };

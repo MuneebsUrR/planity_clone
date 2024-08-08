@@ -31,7 +31,7 @@ const Carousal = ({ slides }) => {
     const { src, heading, title, description, explainer } = slides[currentIndex];
 
     return (
-        <div className="flex flex-col lg:flex-row items-center lg:items-start p-5">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start p-5 mt-24">
             <div className="flex-1 relative w-full lg:w-80 h-[300px] lg:h-[450px] overflow-hidden rounded-lg mx-auto lg:mx-0">
                 <AnimatePresence>
                     <motion.img
