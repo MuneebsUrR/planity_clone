@@ -1,12 +1,12 @@
-import { useState } from 'react'
-function App() {
-
-
+import React from 'react';
+import bgImage from './assets/images/home-bg.jpg'; // Adjust the path as needed
+import './App.css';
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline text-center bg-red-200">
-      Hello world!
-    </h1>
-  )
-}
+   <div className='image'>
 
-export default App
+   </div>
+  );
+};
+
+export default App;
