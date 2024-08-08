@@ -12,9 +12,7 @@ export default function Stats() {
 
     return (
         <div className='mt-24 px-4 sm:px-16 md:px-32 lg:px-64 w-full'>
-            <p className='text-sm text-gray-600 font-semibold underline' style={{ textDecorationColor: '#625DF5', textDecorationThickness: '2px', textDecorationOffset: '10px' }}>
-                Une forte croissance
-            </p>
+            <p className='text-gray-600 font-semibold underline' style={{ textDecorationColor: '#625DF5', textDecorationThickness: '2px', textUnderlineOffset: '10px' }}> Une forte croissance</p>
             <h1 className='font-semibold text-3xl mt-5 text-left'>
                 Vous êtes un professionnel de la beauté ?
             </h1>
