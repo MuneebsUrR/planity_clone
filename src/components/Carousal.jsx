@@ -31,7 +31,7 @@ const Carousal = ({ slides }) => {
     const { src, heading, title, description, explainer } = slides[currentIndex];
 
     return (
-        <div className="flex flex-col lg:flex-row items-center lg:items-start p-5 mt-24">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start p-5 md:m-24">
             <div className="flex-1 relative w-full lg:w-80 h-[300px] lg:h-[450px] overflow-hidden rounded-lg mx-auto lg:mx-0">
                 <AnimatePresence>
                     <motion.img
@@ -46,7 +46,7 @@ const Carousal = ({ slides }) => {
                     />
                 </AnimatePresence>
             </div>
-            <div className="flex-1 lg:pl-24 mt-5 lg:mt-10 text-center lg:text-left">
+            <div className="flex-1 lg:pl-24 mt-5 lg:mt-10 text-center lg:text-left md:ml-16">
                 <h2 className="text-3xl lg:text-5xl font-semibold mb-2">{heading}</h2>
                 <p className="text-xl lg:text-2xl font-bold mt-5">{title}</p>
                 <p className="mb-5 text-gray-500 mt-2">{description}</p>

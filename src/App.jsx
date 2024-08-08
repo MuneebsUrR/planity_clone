@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Carousel from './components/Carousal';
 import bg from './assets/images/home-bg.jpg';
 import Press from './components/Press';
+import Stats from './components/Stats';
 
 const App = () => {
   const slides = [
@@ -21,6 +22,7 @@ const App = () => {
       </div>
       <Carousel slides={slides} />
       <Press/>
+      <Stats/>
     </>
   );
 };
