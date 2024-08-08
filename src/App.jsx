@@ -8,6 +8,7 @@ import bg from './assets/images/home-bg.jpg';
 import Press from './components/Press';
 import Stats from './components/Stats';
 import FAQ from './components/FAQ';
+import Locations from './components/Locations';
 
 const App = () => {
   const slides = [
@@ -24,6 +25,7 @@ const App = () => {
       <Carousel slides={slides} />
       <Press/>
       <Stats/>
+      <Locations/>
       <FAQ/>
     </>
   );

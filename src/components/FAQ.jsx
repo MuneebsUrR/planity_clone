@@ -34,13 +34,15 @@ const FaqItem = ({ question, answer }) => {
 
 const FAQ = () => {
     return (
-        <div className='bg-gray-100 mt-32 p-12'>
+        <div className='bg-gray-100 mt-16 p-12'>
 
             <div className="max-w-2xl mx-auto p-4 ">
             <p className='text-sm text-center mb-5 text-gray-600 font-semibold underline' style={{ textDecorationColor: '#625DF5', textDecorationThickness: '2px', textUnderlineOffset: '10px' }}>FAQ</p>
                 <h2 className="text-3xl font-semibold text-center mb-6">Les questions fréquentes</h2>
                 {faqData.map((faq, index) => (
-                    <FaqItem key={index} question={faq.question} answer={faq.answer} />
+                    <div className='p-3'>
+                    <FaqItem key={index}  question={faq.question} answer={faq.answer} />
+                    </div>
                 ))}
             </div>
         </div>
