@@ -3,11 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Collapse, Button } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import bg from '../assets/images/home-bg.jpg';
+import bg2 from '../assets/images/img2.jpg';
 
-const Carousal = ({ slides }) => {
+const slides = [
+    { src: bg, heading: 'Découvrez nos Professionnels', title: "Barbier", description: 'Explore our amazing features and offers!', explainer: "Le service de prise de rendez-vous en ligne développé par Planity vous permet de choisir l’établissement qui sera le plus à même de satisfaire votre exigence de détente. Massage, gommage, soins précis, épilation, nos prestataires mettent tout en œuvre pour faire de ce moment la pause que vous méritez. Prenez rendez-vous sur notre plateforme en ligne auprès de l’établissement qui saura tenir toutes ses promesses et profitez d’une pause détente inoubliable !" },
+    { src: bg2, heading: 'Découvrez nos Professionnels', title: "Manucure", description: 'Stay updated with the latest trends in the industry.', explainer: "Le service de prise de rendez-vous en ligne développé par Planity vous permet de choisir l’établissement qui sera le plus à même de satisfaire votre exigence de détente. Massage, gommage, soins précis, épilation, nos prestataires mettent tout en œuvre pour faire de ce moment la pause que vous méritez. Prenez rendez-vous sur notre plateforme en ligne auprès de l’établissement qui saura tenir toutes ses promesses et profitez d’une pause détente inoubliable !" },
+  ];
+
+const Carousal = () => {
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('next');
-    const [expanded, setExpanded] = useState(false); // Added state for Collapse
+    const [expanded, setExpanded] = useState(false);
 
     const nextImage = () => {
         setDirection('next');
@@ -22,9 +32,7 @@ const Carousal = ({ slides }) => {
     };
 
     useEffect(() => {
-        // Auto transition to the next image every 6 seconds
         const autoNext = setInterval(nextImage, 6000);
-
         return () => clearInterval(autoNext);
     }, []);
 
@@ -43,6 +51,10 @@ const Carousal = ({ slides }) => {
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: direction === 'next' ? '-100%' : '100%', opacity: 0 }}
                         transition={{ duration: 1 }}
+                        onError={(e) => {
+                            e.target.onerror = null; 
+                            e.target.src = '/path-to-your-placeholder-image.jpg'; 
+                        }} // Handle broken image
                     />
                 </AnimatePresence>
             </div>
@@ -63,15 +75,15 @@ const Carousal = ({ slides }) => {
                 <div className="flex justify-center lg:justify-start mt-5">
                     <button
                         onClick={prevImage}
-                        className="w-12 h-12 rounded-full bg-white border-2 border-gray-300 mr-2 flex items-center justify-center cursor-pointer text-xl"
+                        className="w-10 h-10 rounded-full bg-white border-2 border-black mr-2 flex items-center justify-center cursor-pointer text-md"
                     >
-                        ←
+                        <ArrowBackIosIcon fontSize='small' />
                     </button>
                     <button
                         onClick={nextImage}
-                        className="w-12 h-12 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center cursor-pointer text-xl"
+                        className="w-10 h-10 rounded-full bg-white border-2 border-black flex items-center justify-center cursor-pointer text-md"
                     >
-                        →
+                        <ArrowForwardIosIcon fontSize='small' />
                     </button>
                 </div>
             </div>

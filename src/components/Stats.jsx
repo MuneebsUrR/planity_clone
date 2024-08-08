@@ -38,7 +38,7 @@ export default function Stats() {
                 {stats.map((stat, index) => (
                     <div
                         key={index}
-                        className='relative py-16 px-5 border border-gray-300 text-left transition-transform transform hover:scale-105 hover:shadow-lg group'
+                        className='relative rounded py-16 px-5 border border-gray-300 text-left transition-transform transform hover:scale-105 hover:shadow-lg group'
                     >
                         <h2 className='text-2xl font-semibold'>{stat.number}</h2>
                         <p className='text-lg'>{stat.description}</p>
