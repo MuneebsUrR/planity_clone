@@ -1,15 +1,15 @@
 import React from 'react';
 
 import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Carousel from './components/Carousal';
+import Header from './components/Home/Header';
+import Hero from './components/Home/Hero';
+import Carousel from './components/Home/Carousal';
 
-import Press from './components/Press';
-import Stats from './components/Stats';
-import FAQ from './components/FAQ';
-import Locations from './components/Locations';
-import Footer from './components/Footer';
+import Press from './components/Home/Press';
+import Stats from './components/Home/Stats';
+import FAQ from './components/Home/FAQ';
+import Locations from './components/Home/Locations';
+import Footer from './components/Home/Footer';
 
 const App = () => {
 
@@ -20,12 +20,12 @@ const App = () => {
         <Header />
         <Hero />
       </div>
-      <Carousel/>
-      <Press/>
-      <Stats/>
-      <Locations/>
-      <FAQ/>
-      <Footer/>
+      <Carousel />
+      <Press />
+      <Stats />
+      <Locations />
+      <FAQ />
+      <Footer />
     </>
   );
 };

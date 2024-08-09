@@ -5,13 +5,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import bg from '../assets/images/home-bg.jpg';
-import bg2 from '../assets/images/img2.jpg';
 
 const slides = [
-    { src: bg, heading: 'Découvrez nos Professionnels', title: "Barbier", description: 'Explore our amazing features and offers!', explainer: "Le service de prise de rendez-vous en ligne développé par Planity vous permet de choisir l’établissement qui sera le plus à même de satisfaire votre exigence de détente. Massage, gommage, soins précis, épilation, nos prestataires mettent tout en œuvre pour faire de ce moment la pause que vous méritez. Prenez rendez-vous sur notre plateforme en ligne auprès de l’établissement qui saura tenir toutes ses promesses et profitez d’une pause détente inoubliable !" },
-    { src: bg2, heading: 'Découvrez nos Professionnels', title: "Manucure", description: 'Stay updated with the latest trends in the industry.', explainer: "Le service de prise de rendez-vous en ligne développé par Planity vous permet de choisir l’établissement qui sera le plus à même de satisfaire votre exigence de détente. Massage, gommage, soins précis, épilation, nos prestataires mettent tout en œuvre pour faire de ce moment la pause que vous méritez. Prenez rendez-vous sur notre plateforme en ligne auprès de l’établissement qui saura tenir toutes ses promesses et profitez d’une pause détente inoubliable !" },
-  ];
+    { src: 'https://picsum.photos/200/300', heading: 'Découvrez nos Professionnels', title: "Barbier", description: 'Explore our amazing features and offers!', explainer: "Le service de prise de rendez-vous en ligne développé par Planity vous permet de choisir l’établissement qui sera le plus à même de satisfaire votre exigence de détente. Massage, gommage, soins précis, épilation, nos prestataires mettent tout en œuvre pour faire de ce moment la pause que vous méritez. Prenez rendez-vous sur notre plateforme en ligne auprès de l’établissement qui saura tenir toutes ses promesses et profitez d’une pause détente inoubliable !" },
+    { src: 'https://picsum.photos/id/230/200/300', heading: 'Découvrez nos Professionnels', title: "Manucure", description: 'Stay updated with the latest trends in the industry.', explainer: "Le service de prise de rendez-vous en ligne développé par Planity vous permet de choisir l’établissement qui sera le plus à même de satisfaire votre exigence de détente. Massage, gommage, soins précis, épilation, nos prestataires mettent tout en œuvre pour faire de ce moment la pause que vous méritez. Prenez rendez-vous sur notre plateforme en ligne auprès de l’établissement qui saura tenir toutes ses promesses et profitez d’une pause détente inoubliable !" },
+];
 
 const Carousal = () => {
 
@@ -52,8 +50,8 @@ const Carousal = () => {
                         exit={{ x: direction === 'next' ? '-100%' : '100%', opacity: 0 }}
                         transition={{ duration: 1 }}
                         onError={(e) => {
-                            e.target.onerror = null; 
-                            e.target.src = '/path-to-your-placeholder-image.jpg'; 
+                            e.target.onerror = null;
+                            e.target.src = '/path-to-your-placeholder-image.jpg';
                         }} // Handle broken image
                     />
                 </AnimatePresence>
