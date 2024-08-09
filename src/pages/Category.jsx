@@ -21,6 +21,7 @@ export default function Category() {
       </div>
       <div className='text-center mt-20 text-gray-600 text-sm font-semibold'>{type}</div>
       <section className='mb-10'>
+
         <Cards data={data[type]} />
       </section>
     </div>

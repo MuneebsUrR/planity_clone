@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, CardContent, CardMedia, CardActionArea } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function Cards({ data }) {
@@ -21,24 +21,26 @@ export default function Cards({ data }) {
           initial="hidden"
           animate="visible"
         >
-          <Card sx={{ maxWidth: '100%', width: '350px', marginTop: '25px' }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                image={item.image || "https://picsum.photos/200"}
-                alt={item.name}
-                className="object-cover h-48"
-              />
-              <CardContent>
-                <Typography variant="body2" color="textSecondary" className="text-sm">
-                  Découvrez nos
-                </Typography>
-                <Typography variant="h7" component="h2" className="text-lg font-semibold">
-                  {type} à Location...
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <Link to={`/category/${type}/${item.id}`}>
+            <Card sx={{ maxWidth: '100%', width: '350px', marginTop: '25px' }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  image={item.image || "https://picsum.photos/200"}
+                  alt={item.name}
+                  className="object-cover h-48"
+                />
+                <CardContent>
+                  <Typography variant="body2" color="textSecondary" className="text-sm">
+                    Découvrez nos
+                  </Typography>
+                  <Typography variant="h7" component="h2" className="text-lg font-semibold">
+                    {type} à Location...
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Link>
         </motion.div>
       ))}
     </div>
