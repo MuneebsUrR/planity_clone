@@ -1,7 +1,7 @@
 
 
 export const data = {
-    barbers: [
+  Barbier: [
       {
         id: 1,
         name: "Le Barbier Français",
@@ -38,7 +38,7 @@ export const data = {
         rating: 4.5,
       },
     ],
-    hairdressers: [
+    Coiffeur: [
       {
         id: 1,
         name: "Chic & Style",
@@ -75,7 +75,7 @@ export const data = {
         rating: 4.5,
       },
     ],
-    manicures: [
+    Manucure: [
       {
         id: 1,
         name: "Nail Artiste",
@@ -112,7 +112,7 @@ export const data = {
         rating: 4.5,
       },
     ],
-    beautyInstitutes: [
+    Institutdebeauté: [
       {
         id: 1,
         name: "Institut de Beauté Parisien",

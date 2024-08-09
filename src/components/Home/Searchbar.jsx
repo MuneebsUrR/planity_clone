@@ -10,10 +10,10 @@ export default function Searchbar() {
 
     // Flatten the data to make it easier to work with Autocomplete
     const allResults = [
-        ...data.barbers,
-        ...data.hairdressers,
-        ...data.manicures,
-        ...data.beautyInstitutes,
+        ...data.Barbier,
+        ...data.Coiffeur,
+        ...data.Manucure,
+        ...data.Institutdebeauté,
     ];
 
     // Extract unique addresses and limit to 5 options for the location autocomplete
