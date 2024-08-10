@@ -9,20 +9,23 @@ export default function Cards({ data }) {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
   };
 
   return (
-    <div className="container mx-auto flex flex-wrap justify-center items-center gap-10">
+    <motion.div
+      className="container mx-auto flex flex-wrap justify-center items-center gap-10"
+      initial="hidden"
+      animate="visible"
+      variants={cardVariants}
+    >
       {data.map((item, index) => (
         <motion.div
           key={`${type}-${index}`}  // Ensures animation triggers on type change
           variants={cardVariants}
-          initial="hidden"
-          animate="visible"
         >
           <Link to={`/category/${type}/${item.id}`}>
-            <Card sx={{ maxWidth: '100%', width: '350px', marginTop: '25px' }}>
+            <Card sx={{ maxWidth: '100%', width: '350px', marginTop: '20px' }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -43,6 +46,6 @@ export default function Cards({ data }) {
           </Link>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

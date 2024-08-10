@@ -8,6 +8,9 @@ export const data = {
       rating: 4.8,
       lat: 48.8675,
       lng: 2.3300,
+      reviews: '493',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 2,
@@ -17,6 +20,9 @@ export const data = {
       rating: 4.7,
       lat: 48.8698,
       lng: 2.3075,
+      reviews: '453',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 3,
@@ -26,6 +32,9 @@ export const data = {
       rating: 4.9,
       lat: 48.8543,
       lng: 2.3387,
+      reviews: '103',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 4,
@@ -35,6 +44,9 @@ export const data = {
       rating: 4.6,
       lat: 48.8653,
       lng: 2.3795,
+      reviews: '200',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 5,
@@ -44,6 +56,9 @@ export const data = {
       rating: 4.5,
       lat: 48.8593,
       lng: 2.3302,
+      reviews: '150',
+      price: '€',
+      thumbnail: 'https://picsum.photos/200',
     },
   ],
   Coiffeur: [
@@ -55,6 +70,9 @@ export const data = {
       rating: 4.8,
       lat: 45.7579,
       lng: 4.8327,
+      reviews: '320',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 2,
@@ -64,6 +82,9 @@ export const data = {
       rating: 4.7,
       lat: 45.7564,
       lng: 4.8321,
+      reviews: '270',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 3,
@@ -73,6 +94,9 @@ export const data = {
       rating: 4.9,
       lat: 45.7487,
       lng: 4.8431,
+      reviews: '150',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 4,
@@ -82,6 +106,9 @@ export const data = {
       rating: 4.6,
       lat: 45.7535,
       lng: 4.8289,
+      reviews: '190',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 5,
@@ -91,6 +118,9 @@ export const data = {
       rating: 4.5,
       lat: 45.7676,
       lng: 4.8270,
+      reviews: '160',
+      price: '€',
+      thumbnail: 'https://picsum.photos/200',
     },
   ],
   Manucure: [
@@ -102,6 +132,9 @@ export const data = {
       rating: 4.8,
       lat: 43.2965,
       lng: 5.3698,
+      reviews: '280',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 2,
@@ -111,6 +144,9 @@ export const data = {
       rating: 4.7,
       lat: 43.2999,
       lng: 5.3798,
+      reviews: '300',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 3,
@@ -120,6 +156,9 @@ export const data = {
       rating: 4.9,
       lat: 43.2877,
       lng: 5.3751,
+      reviews: '220',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 4,
@@ -129,6 +168,9 @@ export const data = {
       rating: 4.6,
       lat: 43.2903,
       lng: 5.3799,
+      reviews: '150',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 5,
@@ -138,6 +180,9 @@ export const data = {
       rating: 4.5,
       lat: 43.2977,
       lng: 5.3699,
+      reviews: '180',
+      price: '€',
+      thumbnail: 'https://picsum.photos/200',
     },
   ],
   Institutdebeauté: [
@@ -149,6 +194,9 @@ export const data = {
       rating: 4.8,
       lat: 48.8709,
       lng: 2.3429,
+      reviews: '340',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 2,
@@ -158,6 +206,9 @@ export const data = {
       rating: 4.7,
       lat: 48.8796,
       lng: 2.3625,
+      reviews: '280',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 3,
@@ -167,6 +218,9 @@ export const data = {
       rating: 4.9,
       lat: 48.8726,
       lng: 2.3130,
+      reviews: '150',
+      price: '€€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 4,
@@ -176,6 +230,9 @@ export const data = {
       rating: 4.6,
       lat: 48.8600,
       lng: 2.3412,
+      reviews: '200',
+      price: '€€',
+      thumbnail: 'https://picsum.photos/200',
     },
     {
       id: 5,
@@ -185,6 +242,9 @@ export const data = {
       rating: 4.5,
       lat: 48.8675,
       lng: 2.3300,
+      reviews: '190',
+      price: '€',
+      thumbnail: 'https://picsum.photos/200',
     },
   ],
 };
