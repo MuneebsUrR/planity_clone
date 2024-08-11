@@ -2,12 +2,13 @@ import React from 'react';
 import bg from '../assets/images/img2.jpg'
 import Header from '../components/Home/Header';
 import Footer from '../components/Home/Footer';
+import { Link } from 'react-router-dom';
 function SignIn() {
     return (
         <div div className='bg-gray-100'>
         <Header isnothome={true} needAnimation={false} />
         <div className="flex flex-col md:flex-row h-screen">
-            <div className="w-full md:w-1/2 p-6 md:p-16 xl:p-40 flex flex-col justify-center">
+            <div className="w-full md:w-1/2 p-6 md:p-16 xl:p-36 flex flex-col justify-center">
                 <h2 className="text-2xl font-bold mb-6 text-center">Vous avez déjà utilisé Planity ?</h2>
                 <form className="space-y-4">
                     <div>
@@ -28,8 +29,12 @@ function SignIn() {
                 </div>
                 <div className="mt-6">
                     <h3 className="text-xl font-bold mb-4 text-center">Nouveau sur Planity ?</h3>
-                    <button className="w-full border border-black py-2 rounded hover:bg-black hover:text-white">Créer mon compte</button>
+                    <Link to='/register'>
+                    <button  className="w-full border border-black py-2 rounded hover:bg-black hover:text-white">Créer mon compte</button>
+                    </Link>
                 </div>
+
+
             </div>
             <div className="hidden md:block w-1/2">
                 <img src={bg} alt="Decorative beauty product" className="object-cover w-full h-full" />
