@@ -41,7 +41,7 @@ export default function Category() {
 
         <Cards data={data[type]} />
       </section>
-      <div className='bg-white font-semibold px-5 md:px-20 lg:px-64 py-20 text-lg text-gray-800 flex items-center justify-center'>
+      <div className=' text-center bg-white font-semibold px-5 md:px-20 lg:px-64 py-20 text-lg text-gray-800 flex items-center justify-center'>
         {PageData[type].description}
       </div>
       <Footer />
