@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageGallery from './ImageGallery'
 import Header from '../Home/Header'
+import Footer from '../Home/Footer'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import { useLocation } from 'react-router-dom';
@@ -22,7 +23,7 @@ export default function ShopDetails() {
             <p className='text-gray-500'> <StarBorderOutlinedIcon fontSize='small' /> {rating} ({reviews} avis) · {price} </p>
           </div>
           <div>
-            <button className="px-4 py-2 bg-black text-white rounded-lg">Prendre RDV</button>
+            <button className="px-4 py-2 bg-black text-white text-sm rounded-lg">Prendre RDV</button>
           </div>
 
         </div>
@@ -37,27 +38,31 @@ export default function ShopDetails() {
 
             Choix de la prestation
           </h2>
-          <h3 className='text-xl font-semibold text-gray-700'>
 
-            Balayages et Décolorations
-          </h3>
 
         </section>
         <div className='flex-wrap flex justify-center lg:justify-between'>
           <div className='w-full max-w-lg xl:max-w-3xl 2xl:max-w-5xl mt-5'>
-
+            <h3 className='text-xl text-center md:text-left mb-5 font-semibold text-gray-700'>
+              Balayages et Décolorations
+            </h3>
+            <ServiceChoice />
+            <h3 className='text-xl text-center md:text-left mt-6 mb-5 font-semibold text-gray-700'>
+             Dummy Service
+            </h3>
             <ServiceChoice />
           </div>
           <div className='w-full max-w-sm mt-4' >
 
             <RatingCard />
             <div className='mt-5'>
-              <h2 className='text-2xl font-semibold mb-5' >Horaires d'ouverture</h2>
+              <h2 className='text-xl font-semibold mb-5 text-center md:text-left' >Horaires d'ouverture</h2>
               <OpeningHours />
             </div>
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }
