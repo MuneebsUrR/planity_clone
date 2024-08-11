@@ -3,11 +3,13 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header({isnothome}) {
+    const navigate = useNavigate();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+   
 
     const handleScroll = () => {
         setScrolled(window.scrollY > 40); // Adjust scroll threshold as needed
@@ -36,9 +38,11 @@ export default function Header({isnothome}) {
             <button className="w-full bg-gray-50 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
                 Ajoutez votre établissement
             </button>
+            <Link to={'/login'}>
             <button className="w-full bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
                 Se connecter
             </button>
+            </Link>
         </div>
     );
 
@@ -83,9 +87,11 @@ export default function Header({isnothome}) {
                 <button className="bg-gray-50 mr-2 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
                     Ajoutez votre établissement
                 </button>
+                <Link to='/login'> 
                 <button className="bg-black ml-2 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
                     Se connecter
                 </button>
+                </Link>
             </div>
 
             <div className='block lg:hidden'>
