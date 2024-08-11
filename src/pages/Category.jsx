@@ -4,6 +4,7 @@ import Header from '../components/Home/Header';
 import Searchbar from '../components/Home/Searchbar';
 import Cards from '../components/Category/Cards';
 import { data } from '../lib/data';
+import Carousal from '../components/Category/Carousal';
 
 export default function Category() {
   const { type } = useParams();
@@ -24,6 +25,7 @@ export default function Category() {
 
         <Cards data={data[type]} />
       </section>
+      <Carousal/>
     </div>
   );
 }
