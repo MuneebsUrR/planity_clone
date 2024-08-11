@@ -42,7 +42,7 @@ function Carousel() {
           key={slides[nextIndex].src}
           src={slides[nextIndex].src}
           alt="Next"
-          className="w-full h-auto sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-[400px] lg:h-[400px] rounded-lg"
+          className="w-full h-auto sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-lg"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
@@ -62,7 +62,7 @@ function Carousel() {
             <img
               src={slides[currentIndex].src}
               alt="Current"
-              className="w-full h-auto sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-[400px] lg:h-[400px] rounded-lg"
+              className="w-full h-auto sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-lg"
             />
             <div className='ml-4 flex-col items-center container max-w-md hidden md:block'>
               <p className='text-3xl font-semibold mb-2'>{slides[currentIndex].heading}</p>
@@ -103,7 +103,7 @@ function Carousel() {
           key={slides[previousIndex].src}
           src={slides[previousIndex].src}
           alt="Previous"
-          className="w-full h-auto sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-[400px] lg:h-[400px] rounded-lg"
+          className="w-full h-auto sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-lg"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 50 }}
