@@ -4,13 +4,13 @@ import Header from '../Home/Header'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import { useLocation } from 'react-router-dom';
-
+import SearchNavbar from '../Results/SearchNavbar'
 export default function ShopDetails() {
   const location = useLocation();
   const { name, address, rating, reviews, price } = location.state || {};
   return (
     <div>
-      <Header isnothome={true} />
+      <SearchNavbar/>
       <div className="max-w-6xl mx-auto p-4 mt-5">
         <div className='flex justify-between items-center mb-5'>
           <div>
