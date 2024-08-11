@@ -15,7 +15,7 @@ export default function ShopCard({ shop }) {
   };
 
   return (
-    <Link to={`/shop/${shop.name}`} className="bg-white shadow-none hover:shadow-custom p-4 flex flex-col lg:flex-row border-t-2 border-gray-100 transition duration-300 hover:z-50 relative">
+    <Link to={`/shop/${shop.name}`} state={{name:shop.name,address:shop.address, rating:shop.rating,reviews:shop.reviews,price:shop.price}} className="bg-white shadow-none hover:shadow-custom p-4 flex flex-col lg:flex-row border-t-2 border-gray-100 transition duration-300 hover:z-50 relative">
       <img
         src={shop.thumbnail}
         alt={shop.name}

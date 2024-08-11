@@ -6,24 +6,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 
-function ImageGallery() {
+function ImageGallery({ mainImage, smallImages }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
 
-  const mainImage = "https://picsum.photos/1000/800";
-  const smallImages = [
-    "https://picsum.photos/300/400?random=1",
-    "https://picsum.photos/300/400?random=2",
-    "https://picsum.photos/300/400?random=3",
-    "https://picsum.photos/300/400?random=4",
-    "https://picsum.photos/300/400?random=5",
-    "https://picsum.photos/300/400?random=6",
-    "https://picsum.photos/300/400?random=7",
-    "https://picsum.photos/300/400?random=8",
-  ];
+
 
   const settings = {
     dots: true,
@@ -34,10 +24,11 @@ function ImageGallery() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+  
+      <>
       <div className="hidden md:grid grid-cols-4 gap-4">
         <div className="col-span-4 md:col-span-2 row-span-2">
-          <img src={mainImage} alt="Main" className="w-full h-full object-cover rounded-lg" />
+          <img src={mainImage} alt="Main" className="w-full h-[96%] object-cover rounded-lg" />
         </div>
         {smallImages.slice(0, 3).map((img, index) => (
           <div key={index} className="col-span-2 md:col-span-1">
@@ -88,7 +79,8 @@ function ImageGallery() {
           </div>
         </div>
       </Drawer>
-    </div>
+      </>
+    
   );
 }
 
