@@ -2,7 +2,7 @@ import React from 'react'
 import '../App.css'
 import Header from '../components/Home/Header';
 import Hero from '../components/Home/Hero';
-import Carousal from '../components/Home/Carousal';
+import Carousel from '../components/Home/Carousal';
 
 import Press from '../components/Home/Press';
 import Stats from '../components/Home/Stats';
@@ -16,7 +16,7 @@ export default function Home() {
                 <Header />
                 <Hero />
             </div>
-            <Carousal />
+            <Carousel />
             <Press />
             <Stats />
             <Locations />

@@ -16,7 +16,7 @@ export default function ShopDetails() {
           <div>
             <h1 className="text-2xl font-semibold">{name}</h1>
             <p className="text-gray-500 underline"> <FmdGoodOutlinedIcon fontSize='small' /> {address}</p>
-            <p className='text-gray-500'> <StarBorderOutlinedIcon fontSize='small' /> {rating} ({reviews} avis)   {price} </p>
+            <p className='text-gray-500'> <StarBorderOutlinedIcon fontSize='small' /> {rating} ({reviews} avis) · {price} </p>
           </div>
           <div>
             <button className="px-4 py-2 bg-black text-white rounded-lg">Prendre RDV</button>
