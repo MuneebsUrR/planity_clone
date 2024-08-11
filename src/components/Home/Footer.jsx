@@ -17,7 +17,7 @@ function Footer() {
               <InstagramIcon fontSize='large' />
             </div>
           </div>
-          <div className="text-white">
+          <div className="text-white text-center md:text-left">
             <Typography variant="h6" className="font-semibold mb-5">À propos de Planity</Typography>
             <div className="text-custom-gray font-semibold text-lg space-y-2">
               {['Link Here', 'Link Here', 'Link Here', 'Link Here'].map((link, index) => (
@@ -27,7 +27,7 @@ function Footer() {
               ))}
             </div>
           </div>
-          <div className="text-white">
+          <div className="text-white text-center md:text-left">
             <Typography variant="h6" className="font-semibold mb-5">Trouvez votre prestation</Typography>
             <div className="text-custom-gray font-semibold text-lg space-y-2">
               {['Link Here', 'Link Here', 'Link Here', 'Link Here'].map((link, index) => (
@@ -37,7 +37,7 @@ function Footer() {
               ))}
             </div>
           </div>
-          <div className="text-white">
+          <div className="text-white text-center md:text-left">
             <Typography variant="h6" className="font-semibold mb-5">Recherches fréquentes</Typography>
             <div className="text-custom-gray font-semibold text-lg space-y-2">
               {['Link Here', 'Link Here', 'Link Here', 'Link Here'].map((link, index) => (
