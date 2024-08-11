@@ -12,11 +12,14 @@ export default function Category() {
     <div className='bg-gray-100'>
 
       <Header isnothome={true} />
-      <div className='py-16'>
+      <div className='py-16 px-2'>
         <h1 className='text-4xl font-semibold text-center mb-10'>
           Réserver en ligne un RDV avec un coiffeur {type}
         </h1>
+        <section className='p-4'>
+
         <Searchbar />
+        </section>
       </div>
 
       <div className='text-center pt-16 text-gray-600 text-sm font-semibold bg-white'>{type}</div>

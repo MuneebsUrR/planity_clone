@@ -16,6 +16,13 @@ export default function Searchbar() {
         ...data.Institutdebeauté,
     ];
 
+    const ShopOptions = [
+        'Barbier',
+        'Coiffeur',
+        'Manucure',
+        'Institutdebeauté'
+    ];
+
     // Extract unique addresses and limit to 5 options for the location autocomplete
     const locationOptions = [
         ...new Set(
@@ -25,8 +32,8 @@ export default function Searchbar() {
 
     // Slice results to only show 5 options for the search autocomplete
     const filteredResults = (query) => {
-        return allResults.filter(item =>
-            item.name.toLowerCase().includes(query.toLowerCase())
+        return ShopOptions.filter(item =>
+            item.toLowerCase().includes(query.toLowerCase())
         ).slice(0, 5);
     };
 
@@ -37,7 +44,7 @@ export default function Searchbar() {
                     <Autocomplete
                         freeSolo
                         options={filteredResults(searchQuery)}
-                        getOptionLabel={(option) => option.name || ''}
+                        getOptionLabel={(option) => option || ''}
                         renderInput={(params) => (
                             <TextField
                                 {...params}
@@ -57,7 +64,7 @@ export default function Searchbar() {
                         )}
                         onChange={(event, newValue) => {
                             if (newValue) {
-                                setSearchQuery(newValue.name);
+                                setSearchQuery(newValue);
                             }
                         }}
                     />
@@ -77,7 +84,7 @@ export default function Searchbar() {
                                 InputProps={{
                                     ...params.InputProps,
                                     startAdornment: (
-                                       <LocationOnOutlinedIcon style={{ marginRight: 8 }} />
+                                        <LocationOnOutlinedIcon style={{ marginRight: 8 }} />
                                     ),
                                 }}
                                 value={locationQuery}
