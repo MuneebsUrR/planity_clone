@@ -28,7 +28,7 @@ function ImageGallery({ mainImage, smallImages }) {
       <>
       <div className="hidden md:grid grid-cols-4 gap-4">
         <div className="col-span-4 md:col-span-2 row-span-2">
-          <img src={mainImage} alt="Main" className="w-full h-[96%] object-cover rounded-lg" />
+          <img src={mainImage} alt="Main" className="w-full h-[91%] object-cover rounded-lg" />
         </div>
         {smallImages.slice(0, 3).map((img, index) => (
           <div key={index} className="col-span-2 md:col-span-1">
@@ -44,6 +44,7 @@ function ImageGallery({ mainImage, smallImages }) {
             See more
           </button>
         </div>
+        
       </div>
 
       {/* Carousel for small screens */}
