@@ -38,19 +38,19 @@ function Carousal() {
   return (
     <>
       <div className='relative flex items-center justify-center overflow-hidden p-4 mt-20'>
-        <div className='relative flex-shrink-0 lg:right-20'>
+        <div className='relative flex-shrink-0 lg:right-20 p-3'>
           <motion.img
             key={slides[nextIndex].src}
             src={slides[nextIndex].src}
             alt="Next"
-            className="w-full h-auto w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[450px] rounded-lg"
+            className="w-full h-auto w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[450px] rounded-lg"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5 }}
           />
         </div>
-        <div className='relative flex-shrink-0 mx-4'>
+        <div className='relative flex-shrink-0 mx-4 p-3'>
           <div className='flex'>
             <motion.div
               key={slides[currentIndex].src}
@@ -63,7 +63,7 @@ function Carousal() {
               <img
                 src={slides[currentIndex].src}
                 alt="Current"
-                className="w-full h-auto w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[450px] rounded-lg"
+                className="w-full h-auto w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[450px] rounded-lg"
               />
               <div className='ml-4 flex-col items-center container max-w-md hidden md:block mt-5 p-4'>
                 <p className='text-4xl font-semibold mb-2'>{slides[currentIndex].heading}</p>
@@ -99,12 +99,12 @@ function Carousal() {
             </motion.div>
           </div>
         </div>
-        <div className='relative flex-shrink-0 lg:left-20'>
+        <div className='relative flex-shrink-0 lg:left-20 p-3'>
           <motion.img
             key={slides[previousIndex].src}
             src={slides[previousIndex].src}
             alt="Previous"
-            className="w-full h-auto w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[450px] rounded-lg"
+            className="w-full h-auto w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[450px] rounded-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
