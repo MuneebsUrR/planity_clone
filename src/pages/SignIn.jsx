@@ -20,7 +20,7 @@ function SignIn() {
                         <input type="password" id="password" name="password" placeholder="Mot de passe" className="w-full px-3 py-2 border rounded" required />
                     </div>
                     <div>
-                        <a href="#" className="text-sm text-blue-600 hover:underline">Mot de passe oublié ?</a>
+                        <Link to={'/forgot-password'} className="text-sm text-black underline">Mot de passe oublié ?</Link>
                     </div>
                     <button type="submit" className="w-full bg-black text-white py-2 rounded hover:bg-gray-900">Se connecter</button>
                 </form>
