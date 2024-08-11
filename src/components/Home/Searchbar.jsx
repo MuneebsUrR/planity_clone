@@ -3,10 +3,12 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { Autocomplete, TextField } from '@mui/material';
 import { data } from '../../lib/data';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Searchbar() {
     const [searchQuery, setSearchQuery] = useState('');
     const [locationQuery, setLocationQuery] = useState('');
+    const navigate = useNavigate(); // Initialize useNavigate hook
 
     // Flatten the data to make it easier to work with Autocomplete
     const allResults = [
@@ -35,6 +37,19 @@ export default function Searchbar() {
         return ShopOptions.filter(item =>
             item.toLowerCase().includes(query.toLowerCase())
         ).slice(0, 5);
+    };
+
+    // Function to handle navigation
+    const handleSearch = () => {
+        console.log(searchQuery, locationQuery);
+        if (searchQuery.length>0 && locationQuery.length>0) {
+            // If both searchQuery and locationQuery are filled
+            navigate(`/category/${searchQuery}/${locationQuery}`);
+
+        }else{
+            navigate(`/category/${searchQuery}`);
+        }
+        
     };
 
     return (
@@ -90,10 +105,19 @@ export default function Searchbar() {
                                 value={locationQuery}
                                 onChange={(e) => setLocationQuery(e.target.value)}
                             />
+
                         )}
+                        onChange={(event, newValue) => {
+                            if (newValue) {
+                                setLocationQuery(newValue);
+                            }
+                        }}
                     />
                 </div>
-                <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800">
+                <button
+                    className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800"
+                    onClick={handleSearch} // Attach handleSearch function
+                >
                     <p className='hidden lg:block'>Rechercher</p>
                     <div className='block lg:hidden'>
                         <SearchOutlinedIcon fontSize='medium' />

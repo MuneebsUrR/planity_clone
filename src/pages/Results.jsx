@@ -1,12 +1,12 @@
 import React from 'react';
-import MapView from '../components/CategoryLocation/MapView';
-import ShopCard from '../components/CategoryLocation/ShopCard';
-import SearchNavbar from '../components/CategoryLocation/SearchNavbar';
+import MapView from '../components/Results/MapView';
+import ShopCard from '../components/Results/ShopCard';
+import SearchNavbar from '../components/Results/SearchNavbar';
 import Footer from '../components/Home/Footer';
 import { data } from '../lib/data';
 import { useParams } from 'react-router-dom';
 
-export default function CategoryLocation() {
+export default function Results() {
   const { type } = useParams();
   const shops = data[type];
 
