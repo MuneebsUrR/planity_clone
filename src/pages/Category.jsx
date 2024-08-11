@@ -25,7 +25,7 @@ export default function Category() {
   return (
     <div className='bg-gray-100'>
 
-      <Header isnothome={true} />
+      <Header isnothome={true} needAnimation={true} />
       <div className='py-16 px-2'>
         <h1 className='text-4xl font-semibold text-center mb-10'>
           Réserver en ligne un RDV avec un coiffeur {type}

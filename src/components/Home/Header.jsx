@@ -5,25 +5,29 @@ import MenuIcon from '@mui/icons-material/Menu';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function Header({isnothome}) {
+export default function Header({isnothome,needAnimation}) {
     const navigate = useNavigate();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
    
 
     const handleScroll = () => {
-        setScrolled(window.scrollY > 40); // Adjust scroll threshold as needed
+        setScrolled(window.scrollY > 35); // Adjust scroll threshold as needed
     };
 
     useEffect(() => {
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll);
+        // Add scroll event listener only if isn't home
+        if (needAnimation) {
+            window.addEventListener('scroll', handleScroll);
+        }
 
         // Cleanup the event listener on component unmount
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            if (needAnimation) {
+                window.removeEventListener('scroll', handleScroll);
+            }
         };
-    }, []);
+    }, [needAnimation]);
 
     const toggleDrawer = (open) => () => {
         setIsDrawerOpen(open);
@@ -47,7 +51,7 @@ export default function Header({isnothome}) {
     );
 
     return (
-        <div className={`flex justify-between lg:justify-around items-center p-4 transition-colors duration-300 ${scrolled ? 'bg-white shadow-md text-black' : 'bg-transparent text-white'} sticky top-0 z-[1000]`}>
+        <div className={`flex justify-between lg:justify-around items-center p-4 transition-colors duration-300 ${scrolled || !needAnimation ? 'bg-white shadow-md text-black' : 'bg-transparent text-white'} sticky top-0 z-[1000]`}>
             {/* Menu Button for Small and Medium Screens */}
             <div className='block lg:hidden'>
                 

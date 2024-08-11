@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <div>
             <div className='image'>
-                <Header />
+                <Header isnothome={false} needAnimation={true} />
                 <Hero />
             </div>
             <Carousel />

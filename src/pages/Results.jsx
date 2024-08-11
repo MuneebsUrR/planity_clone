@@ -1,7 +1,7 @@
 import React from 'react';
 import MapView from '../components/Results/MapView';
 import ShopCard from '../components/Results/ShopCard';
-import SearchNavbar from '../components/Results/SearchNavbar';
+import Header from '../components/Home/Header';
 import Footer from '../components/Home/Footer';
 import { data } from '../lib/data';
 import { useParams } from 'react-router-dom';
@@ -13,7 +13,7 @@ export default function Results() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <SearchNavbar />
+      <Header isnothome={true} needAnimation={false} />
 
         <div className="flex flex-grow">
           {/* Cards Section */}

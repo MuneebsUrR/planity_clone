@@ -4,7 +4,7 @@ import Header from '../Home/Header'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import { useLocation } from 'react-router-dom';
-import SearchNavbar from '../Results/SearchNavbar'
+
 import ServiceChoice from './ServiceChoice';
 import RatingCard from './RatingCard';
 export default function ShopDetails() {
@@ -12,7 +12,7 @@ export default function ShopDetails() {
   const { name, address, rating, reviews, price } = location.state || {};
   return (
     <div className='bg-gray-100'>
-      <SearchNavbar />
+       <Header isnothome={true} needAnimation={false} />
       <div className="container mx-auto p-5 mt-5">
         <div className='flex justify-between items-center mb-5'>
           <div>
