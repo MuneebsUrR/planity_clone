@@ -7,12 +7,13 @@ import { useLocation } from 'react-router-dom';
 
 import ServiceChoice from './ServiceChoice';
 import RatingCard from './RatingCard';
+import OpeningHours from './OpeningHours';
 export default function ShopDetails() {
   const location = useLocation();
   const { name, address, rating, reviews, price } = location.state || {};
   return (
     <div className='bg-gray-100'>
-       <Header isnothome={true} needAnimation={false} />
+      <Header isnothome={true} needAnimation={false} />
       <div className="container mx-auto p-5 mt-5">
         <div className='flex justify-between items-center mb-5'>
           <div>
@@ -50,6 +51,10 @@ export default function ShopDetails() {
           <div className='w-full max-w-sm mt-4' >
 
             <RatingCard />
+            <div className='mt-5'>
+              <h2 className='text-2xl font-semibold mb-5' >Horaires d'ouverture</h2>
+              <OpeningHours />
+            </div>
           </div>
         </div>
       </div>
