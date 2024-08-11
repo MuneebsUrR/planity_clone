@@ -42,8 +42,8 @@ export default function ShopDetails() {
           </h3>
 
         </section>
-        <div className='flex-wrap flex justify-center lg:justify-between items-center'>
-          <div className='w-full max-w-lg xl:max-w-2xl mt-5'>
+        <div className='flex-wrap flex justify-center lg:justify-between'>
+          <div className='w-full max-w-lg xl:max-w-3xl 2xl:max-w-5xl mt-5'>
 
             <ServiceChoice />
           </div>
