@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 import ServiceChoice from './ServiceChoice';
 import RatingCard from './RatingCard';
 import OpeningHours from './OpeningHours';
+import Collaborators from './Collaborators';
 export default function ShopDetails() {
   const location = useLocation();
   const { name, address, rating, reviews, price } = location.state || {};
@@ -51,6 +52,7 @@ export default function ShopDetails() {
              Dummy Service
             </h3>
             <ServiceChoice />
+            <Collaborators collaborators={collaboratorsData} />
           </div>
           <div className='w-full max-w-sm mt-4' >
 
@@ -76,4 +78,12 @@ const smallImages = [
   "https://picsum.photos/300/400?random=6",
   "https://picsum.photos/300/400?random=7",
   "https://picsum.photos/300/400?random=8",
+];
+
+
+const collaboratorsData = [
+  { name: 'Pierre', image:" https://picsum.photos/200" },
+  { name: 'Mehdi', image: null },
+  { name: 'SALON', image: null },
+ 
 ];
