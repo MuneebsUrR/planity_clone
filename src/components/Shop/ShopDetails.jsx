@@ -11,6 +11,7 @@ import RatingCard from './RatingCard';
 import OpeningHours from './OpeningHours';
 import Collaborators from './Collaborators';
 import MapView from '../Results/MapView';
+import AboutUs from './AboutUs';
 export default function ShopDetails() {
   const location = useLocation();
   const { name, address, rating, reviews, price, lat, lng } = location.state || {};
@@ -55,16 +56,19 @@ export default function ShopDetails() {
             </h3>
             <ServiceChoice />
 
-            <div className='w-full h-72 mt-12 mb-36'>
-              <h2 className='text-xl font-semibold'>Où se situe le salon ?</h2>
+            <div className='w-full h-72 mt-12 mb-40'>
+              <h2 className='text-xl text-center md:text-left mt-6 mb-5 font-semibold text-gray-700'>Où se situe le salon ?</h2>
               <p className="text-gray-500 text-md underline mb-5"> <FmdGoodOutlinedIcon fontSize='small' /> {address}</p>
               <MapView DefaultLongitude={lng} DefaultLatitude={lat} zoomValue={16} />
             </div>
-            <div className='mt-16'>
-
+            <div>
+            <h2 className='text-xl text-center md:text-left font-semibold text-gray-700'>Collaborateurs</h2>
               <Collaborators collaborators={collaboratorsData} />
             </div>
-
+            <div className='mt-10 mb-5'>
+            <h2 className='mb-5 text-xl text-center md:text-left font-semibold text-gray-700'>À-propos</h2>
+            <AboutUs/>
+            </div>
 
           </div>
           <div className='w-full max-w-sm mt-4' >
