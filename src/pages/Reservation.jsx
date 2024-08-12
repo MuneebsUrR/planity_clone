@@ -23,14 +23,16 @@ export default function Reservation() {
 
         </div>
         <div>
+          <h1 className="text-2xl font-semibold mb-4 mt-10"><span className='text-blue-500'>1.</span> Prestation sélectionnée</h1>
           <ServiceSelection />
         </div>
         <div>
+          <h1 className="text-2xl font-semibold mb-4 mt-10"><span className='text-blue-500'>2.</span>  Choix de la date & heure</h1>
           <Scheduler />
         </div>
 
       </div>
-  <Footer/>
+      <Footer />
     </div>
   )
 }

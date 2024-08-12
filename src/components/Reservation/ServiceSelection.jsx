@@ -30,8 +30,8 @@ function ServiceSelection() {
 
 
     return (
-        <div className=" mt-8">
-            <h1 className="text-2xl font-semibold mb-4"><span className='text-blue-500'>1.</span> Prestation sélectionnée</h1>
+        <div>
+           
             {selectedServices.map((service, index) => (
                 <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md flex items-center justify-between">
                     <div className='text-sm'>

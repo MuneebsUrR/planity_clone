@@ -35,7 +35,8 @@ const Scheduler = () => {
     };
 
     return (
-        <div className="p-4 bg-white rounded-lg shadow-md">
+        <div className="p-4 bg-white rounded-lg shadow-md mb-10">
+            
             <div className="flex justify-around items-start">
                 <button
                     onClick={handlePrevious}
