@@ -54,7 +54,7 @@ export default function Searchbar() {
 
     return (
         <div>
-            <div className="flex items-center bg-white rounded-lg shadow p-3 max-w-4xl mx-auto">
+            <div className="flex items-center bg-white rounded-lg shadow p-2 max-w-4xl mx-auto">
                 <div className="flex-1 mx-2 relative">
                     <Autocomplete
                         freeSolo
