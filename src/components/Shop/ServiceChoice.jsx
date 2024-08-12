@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { selected_services } from '../../lib/data';
 
 function ServiceChoice({ allServices }) {
+ 
   const [expanded, setExpanded] = useState(false);
   const { shopname } = useParams();
+  const location = useLocation();
+  const { name, address, rating, reviews, price, lat, lng } = location.state || {};
 
   const visibleServices = expanded ? allServices : allServices.slice(0, 5);
 
   const toggleExpand = () => {
     setExpanded(!expanded);
   };
+
+  const handleServiceClick= (service)=>{
+    selected_services.push(service)
+    console.log(selected_services)
+  }
 
   return (
     <div className="p-6 bg-white rounded-lg shadow">
@@ -18,8 +27,9 @@ function ServiceChoice({ allServices }) {
           <li
             key={index}
             className='border-b'
+            onClick={()=>handleServiceClick(service)}
           >
-            <Link className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 border-b border-gray-200 last:border-b-0" to={`/shop/${shopname}/reserve`}>
+            <Link state={{ name: name, address: address, rating: rating, reviews: reviews, price: price }} className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 border-b border-gray-200 last:border-b-0" to={`/shop/${shopname}/reserve`}>
               <div>
                 <p className="font-medium">{service.name}</p>
               </div>

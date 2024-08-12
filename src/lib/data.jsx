@@ -248,3 +248,5 @@ export const data = {
     },
   ],
 };
+
+export const selected_services=[]
