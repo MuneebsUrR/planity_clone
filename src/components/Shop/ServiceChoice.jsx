@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 function ServiceChoice({ allServices }) {
   const [expanded, setExpanded] = useState(false);
+  const { shopname } = useParams();
 
   const visibleServices = expanded ? allServices : allServices.slice(0, 5);
 
@@ -15,18 +17,20 @@ function ServiceChoice({ allServices }) {
         {visibleServices.map((service, index) => (
           <li
             key={index}
-            className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 border-b border-gray-200 last:border-b-0"
+            className='border-b'
           >
-            <div>
-              <p className="font-medium">{service.name}</p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-2 sm:mt-0">
-              <p className="text-sm text-gray-500">{service.duration}</p>
-              <span className="font-medium">{service.price}</span>
-              <button className="px-3 py-1 font-semibold bg-black text-white text-sm rounded hover:bg-gray-800 transition-colors mt-2 sm:mt-0">
-                Choisir
-              </button>
-            </div>
+            <Link className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 border-b border-gray-200 last:border-b-0" to={`/shop/${shopname}/reserve`}>
+              <div>
+                <p className="font-medium">{service.name}</p>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-2 sm:mt-0">
+                <p className="text-sm text-gray-500">{service.duration}</p>
+                <span className="font-medium">{service.price}</span>
+                <button className="px-3 py-1 font-semibold bg-black text-white text-sm rounded hover:bg-gray-800 transition-colors mt-2 sm:mt-0">
+                  Choisir
+                </button>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

@@ -4,7 +4,7 @@ import Header from '../Home/Header'
 import Footer from '../Home/Footer'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import ServiceChoice from './ServiceChoice';
 import RatingCard from './RatingCard';
@@ -13,6 +13,7 @@ import Collaborators from './Collaborators';
 import MapView from '../Results/MapView';
 import AboutUs from './AboutUs';
 export default function ShopDetails() {
+
   const location = useLocation();
   const { name, address, rating, reviews, price, lat, lng } = location.state || {};
   return (

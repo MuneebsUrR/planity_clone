@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Shop from './pages/Shop';
 import SignIn from './pages/SignIn';
 import ForgotPassword from './pages/ForgotPassword';
+import Reservation from './pages/Reservation';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/category/:type' element={<Category />} />
         <Route path='/category/:type/:location' element={<Results />} />
         <Route path='/shop/:shopname' element={<Shop />} />
+        <Route path='/shop/:shopname/reserve' element={<Reservation />}/>
 
       </Routes>
 
