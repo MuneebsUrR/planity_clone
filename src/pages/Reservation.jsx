@@ -5,6 +5,7 @@ import Footer from '../components/Home/Footer';
 import ServiceSelection from '../components/Reservation/ServiceSelection';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import Scheduler from '../components/Reservation/Scheduler';
 export default function Reservation() {
   const location = useLocation();
   const { name, address, rating, reviews, price, lat, lng } = location.state || {};
@@ -14,7 +15,7 @@ export default function Reservation() {
       <Header isnothome={true} needAnimation={false} />
 
 
-      <div className='max-w-5xl mt-10 container mx-auto mb-5 p-3'>
+      <div className='max-w-4xl mt-10 container mx-auto mb-5 p-3'>
         <div >
           <h1 className="text-3xl font-semibold mb-2">{name}</h1>
           <p className="text-gray-500 text-lg underline"> <FmdGoodOutlinedIcon fontSize='small' /> {address}</p>
@@ -23,6 +24,9 @@ export default function Reservation() {
         </div>
         <div>
           <ServiceSelection />
+        </div>
+        <div>
+          <Scheduler />
         </div>
 
       </div>

@@ -1,95 +1,81 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button, Typography, Box, Grid } from '@mui/material';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-const dummyCollaborators = [
-  "Alice Johnson",
-  "Bob Smith",
-  "Carol Williams",
-  "David Brown",
-  "Eva Davis"
-];
+const Scheduler = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-function Scheduler (){
-  const [currentWeek, setCurrentWeek] = useState(0);
-  const [direction, setDirection] = useState(0);
+    const days = [
+        { name: 'jeudi', date: '17 oct.' },
+        { name: 'vendredi', date: '18 oct.' },
+        { name: 'samedi', date: '19 oct.' },
+        { name: 'dimanche', date: '20 oct.' },
+        { name: 'lundi', date: '21 oct.' },
+        { name: 'mardi', date: '22 oct.' },
+        { name: 'mercredi', date: '23 oct.' },
+    ];
 
-  const days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
-  const times = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30'];
+    const times = [
+        '10:00', '10:30', '11:00', '11:30', '12:00',
+        '12:30', '13:00', '13:30', '14:00', '14:30',
+        '15:00', '15:30', '16:00', '16:30', '17:00',
+        '17:30', '18:00', '18:30', '19:00',
+    ];
 
-  const getWeekDates = () => {
-    const today = new Date();
-    const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1 + (currentWeek * 7)));
-    return days.map((day, index) => {
-      const date = new Date(startOfWeek);
-      date.setDate(startOfWeek.getDate() + index);
-      return `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}`;
-    });
-  };
+    const handleNext = () => {
+        if (currentIndex < days.length - 1) {
+            setCurrentIndex(currentIndex + 1);
+        }
+    };
 
-  const handlePrevWeek = () => {
-    setDirection(-1);
-    setCurrentWeek(currentWeek - 1);
-  };
+    const handlePrevious = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+        }
+    };
 
-  const handleNextWeek = () => {
-    setDirection(1);
-    setCurrentWeek(currentWeek + 1);
-  };
-
-  return (
-    <Box sx={{ p: 4 }}>
-      <Typography variant="h5" fontWeight="bold" mb={4}>
-        2. Choix de la date & heure
-      </Typography>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 4 }}>
-        <Button onClick={handlePrevWeek} sx={{ minWidth: 'auto' }}>
-          <ChevronLeft />
-        </Button>
-        <AnimatePresence custom={direction} initial={false}>
-          <motion.div
-            key={currentWeek}
-            custom={direction}
-            initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
-            transition={{ duration: 0.3 }}
-            style={{ display: 'flex', flexGrow: 1, justifyContent: 'space-around' }}
-          >
-            {days.map((day, index) => (
-              <Box key={day} textAlign="center">
-                <Typography fontWeight="bold">{day}</Typography>
-                <Typography variant="body2">{getWeekDates()[index]}</Typography>
-              </Box>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-        <Button onClick={handleNextWeek} sx={{ minWidth: 'auto' }}>
-          <ChevronRight />
-        </Button>
-      </Box>
-      <Grid container spacing={2}>
-        {days.map((day) => (
-          <Grid item xs key={day}>
-            <Box display="flex" flexDirection="column" gap={1}>
-              {times.map((time) => (
-                <Button
-                  key={`${day}-${time}`}
-                  variant="outlined"
-                  fullWidth
-                  size="small"
-                  sx={{ justifyContent: 'flex-start', py: 1 }}
+    return (
+        <div className="p-4 bg-white rounded-lg shadow-md">
+            <div className="flex justify-around items-start">
+                <button
+                    onClick={handlePrevious}
+                    disabled={currentIndex === 0}
+                    className="text-purple-500 disabled:text-gray-300"
                 >
-                  {time}
-                </Button>
-              ))}
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
+                    <ArrowBackIosIcon />
+                </button>
+                <div className="overflow-hidden">
+                    <div
+                        className="flex transition-transform duration-500"
+                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    >
+                        {days.map((day, index) => (
+                            <div key={index} className="flex flex-col items-center min-w-[100px]">
+                                <div className="font-medium text-gray-700">{day.name}</div>
+                                <div className="text-sm text-gray-500">{day.date}</div>
+                                <div className="mt-2 space-y-1">
+                                    {times.map((time, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="px-5 py-1 bg-gray-100 hover:bg-gray-300 rounded-md text-center text-sm"
+                                        >
+                                            {time}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <button
+                    onClick={handleNext}
+                    className="text-purple-500 disabled:text-gray-300"
+                >
+                    <ArrowForwardIosIcon />
+                </button>
+            </div>
+        </div>
+    );
 };
 
 export default Scheduler;
