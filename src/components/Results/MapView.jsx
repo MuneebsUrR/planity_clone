@@ -4,21 +4,13 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../../lib/data"; // Import the data file
 
-// Custom icon for the markers
-const locationIcon = new L.Icon({
-  iconUrl: "https://unpkg.com/leaflet/dist/images/marker-icon.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowUrl: "https://unpkg.com/leaflet/dist/images/marker-shadow.png",
-  shadowSize: [41, 41],
-});
 
-const MapView = () => {
-  const defaultCenter = [48.8566, 2.3522]; // Coordinates for Paris
+
+const MapView = ({DefaultLongitude = 2.3522, DefaultLatitude = 48.8566, zoomValue=12}) => {
+  const defaultCenter = [DefaultLatitude, DefaultLongitude]; // Coordinates for Paris
 
   return (
-    <MapContainer center={defaultCenter} zoom={12} style={{ height: "100%", width: "100%" }}>
+    <MapContainer center={defaultCenter} zoom={zoomValue} style={{ height: "100%", width: "100%", position:'relative', zIndex:'1' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -30,7 +22,7 @@ const MapView = () => {
           <Marker
             key={location.id}
             position={[location.lat, location.lng]}
-            icon={locationIcon}
+            
           >
             <Popup>
               <strong>{location.name}</strong><br />

@@ -10,18 +10,20 @@ import ServiceChoice from './ServiceChoice';
 import RatingCard from './RatingCard';
 import OpeningHours from './OpeningHours';
 import Collaborators from './Collaborators';
+import MapView from '../Results/MapView';
 export default function ShopDetails() {
   const location = useLocation();
-  const { name, address, rating, reviews, price } = location.state || {};
+  const { name, address, rating, reviews, price, lat, lng } = location.state || {};
   return (
     <div className='bg-gray-100'>
       <Header isnothome={true} needAnimation={false} />
       <div className="container mx-auto p-5 mt-5">
         <div className='flex justify-between items-center mb-5'>
           <div>
-            <h1 className="text-2xl font-semibold">{name}</h1>
-            <p className="text-gray-500 underline"> <FmdGoodOutlinedIcon fontSize='small' /> {address}</p>
-            <p className='text-gray-500'> <StarBorderOutlinedIcon fontSize='small' /> {rating} ({reviews} avis) · {price} </p>
+            <h1 className="text-3xl font-semibold mb-2">{name}</h1>
+            <p className="text-gray-500 text-lg underline"> <FmdGoodOutlinedIcon fontSize='small' /> {address}</p>
+            <p className='text-gray-500 text-lg'> <StarBorderOutlinedIcon fontSize='small' /> {rating} ({reviews} avis) · {price} </p>
+
           </div>
           <div>
             <button className="px-4 py-2 bg-black text-white text-sm rounded-lg">Prendre RDV</button>
@@ -49,10 +51,21 @@ export default function ShopDetails() {
             </h3>
             <ServiceChoice />
             <h3 className='text-xl text-center md:text-left mt-6 mb-5 font-semibold text-gray-700'>
-             Dummy Service
+              Dummy Service
             </h3>
             <ServiceChoice />
-            <Collaborators collaborators={collaboratorsData} />
+
+            <div className='w-full h-72 mt-12 mb-36'>
+              <h2 className='text-xl font-semibold'>Où se situe le salon ?</h2>
+              <p className="text-gray-500 text-md underline mb-5"> <FmdGoodOutlinedIcon fontSize='small' /> {address}</p>
+              <MapView DefaultLongitude={lng} DefaultLatitude={lat} zoomValue={16} />
+            </div>
+            <div className='mt-16'>
+
+              <Collaborators collaborators={collaboratorsData} />
+            </div>
+
+
           </div>
           <div className='w-full max-w-sm mt-4' >
 
@@ -64,7 +77,7 @@ export default function ShopDetails() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
@@ -82,8 +95,8 @@ const smallImages = [
 
 
 const collaboratorsData = [
-  { name: 'Pierre', image:" https://picsum.photos/200" },
+  { name: 'Pierre', image: " https://picsum.photos/200" },
   { name: 'Mehdi', image: null },
   { name: 'SALON', image: null },
- 
+
 ];
