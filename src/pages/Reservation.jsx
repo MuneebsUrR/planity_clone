@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Home/Header';
 import Footer from '../components/Home/Footer';
@@ -7,6 +7,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Scheduler from '../components/Reservation/Scheduler';
 export default function Reservation() {
+
   const location = useLocation();
   const { name, address, rating, reviews, price, lat, lng } = location.state || {};
   return (

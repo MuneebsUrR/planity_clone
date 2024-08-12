@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { selected_services } from '../../lib/data';
 
 function ServiceChoice({ allServices }) {
  
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
   const { shopname } = useParams();
   const location = useLocation();
   const { name, address, rating, reviews, price, lat, lng } = location.state || {};

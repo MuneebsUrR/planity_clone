@@ -11,12 +11,14 @@ import Shop from './pages/Shop';
 import SignIn from './pages/SignIn';
 import ForgotPassword from './pages/ForgotPassword';
 import Reservation from './pages/Reservation';
+import ScrollToTop from './ScrollToTop';
 
 const App = () => {
 
 
   return (
     <>
+        <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<SignIn />} />

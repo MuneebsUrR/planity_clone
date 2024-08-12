@@ -19,19 +19,17 @@ function ServiceSelection() {
 
     const removeService = (name) => {
 
-        setSelectedServices(selectedServices.filter((service) => service.name !== name));
+        setSelectedServices(prevServices =>
+            prevServices.filter((service) => service.name !== name)
+        );
 
     };
 
-    useEffect(() => {
-        setSelectedServices(selected_services);
-
-    }, [selected_services, selectedServices])
 
 
     return (
         <div>
-           
+
             {selectedServices.map((service, index) => (
                 <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md flex items-center justify-between">
                     <div className='text-sm'>
