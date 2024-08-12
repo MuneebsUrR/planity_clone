@@ -99,9 +99,11 @@ export default function Header({isnothome,needAnimation}) {
             </div>
 
             <div className='block lg:hidden'>
-                <button className="bg-black ml-2 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
+                <Link to={'/login'}>
+                <button  className="bg-black ml-2 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
                     <PersonOutlineOutlinedIcon fontSize='medium' />
                 </button>
+                </Link>
             </div>
 
             {/* Drawer for Small and Medium Screens */}
