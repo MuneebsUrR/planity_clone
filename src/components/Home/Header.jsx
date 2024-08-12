@@ -35,10 +35,10 @@ export default function Header({isnothome,needAnimation}) {
 
     const drawerContent = (
         <div className="p-4 space-y-4">
-            <Link to={'/category/Coiffeur'} className='block text-black'>Coiffeur</Link>
-            <Link to={'/category/Barbier'} className='block text-black'>Barbier</Link>
-            <Link to={'/category/Manucure'} className='block text-black'>Manucure</Link>
-            <Link to={'/category/Institutdebeauté'} className='block text-black'>Institut de beauté</Link>
+            <Link onClick={()=>setIsDrawerOpen(false)} to={'/category/Coiffeur'} className='block text-black'>Coiffeur</Link>
+            <Link onClick={()=>setIsDrawerOpen(false)} to={'/category/Barbier'} className='block text-black'>Barbier</Link>
+            <Link onClick={()=>setIsDrawerOpen(false)} to={'/category/Manucure'} className='block text-black'>Manucure</Link>
+            <Link onClick={()=>setIsDrawerOpen(false)} to={'/category/Institutdebeauté'} className='block text-black'>Institut de beauté</Link>
             <button className="w-full bg-gray-50 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
                 Ajoutez votre établissement
             </button>
