@@ -32,8 +32,8 @@ function RatingCard() {
     const RatingStar = ({ rating }) => (
         <div className="flex items-center">
            
+            <span className="mr-2 text-sm">{rating.toFixed(1)}</span>
                 <StarIcon fontSize='small' />
-            <span className="ml-2 text-sm">{rating.toFixed(1)}</span>
         </div>
     );
 
@@ -57,17 +57,17 @@ function RatingCard() {
             </div>
             {activeTab === 'Note globale' && (
                 <div className="p-4 flex">
-                    <div className="w-1/3 bg-black text-white flex items-center justify-center p-4 rounded-lg">
+                    <div className="w-1/3 bg-black text-white flex items-center justify-center p-4 rounded-l-lg">
                         <span className="text-4xl font-bold">4,3</span>
                     </div>
-                    <div className="w-2/3 pl-4">
+                    <div className="w-2/3 pl-4 bg-gray-200 text-gray-800 p-3 rounded-r-lg">
                         {ratings.map((item, index) => (
                             <div key={index} className="flex justify-between items-center mb-1">
                                 <span className="text-sm">{item.category}</span>
                                 <RatingStar rating={item.rating} />
                             </div>
                         ))}
-                        <p className="text-sm text-gray-500 mt-2">
+                        <p className="text-sm text-black font-semibold mt-2">
                             35 clients ont donné leur avis
                         </p>
                     </div>
