@@ -50,11 +50,7 @@ export default function ShopDetails() {
             <h3 className='text-xl text-center md:text-left mb-5 font-semibold text-gray-700'>
               Balayages et Décolorations
             </h3>
-            <ServiceChoice />
-            <h3 className='text-xl text-center md:text-left mt-6 mb-5 font-semibold text-gray-700'>
-              Dummy Service
-            </h3>
-            <ServiceChoice />
+            <ServiceChoice allServices={allServices} />
 
             <div className='w-full h-72 mt-12 mb-40'>
               <h2 className='text-xl text-center md:text-left mt-6 mb-5 font-semibold text-gray-700'>Où se situe le salon ?</h2>
@@ -103,4 +99,14 @@ const collaboratorsData = [
   { name: 'Mehdi', image: null },
   { name: 'SALON', image: null },
 
+];
+
+const allServices = [
+  { name: 'Highlights or Balayage - Short Hair', duration: '1h 5min', price: '64 €' },
+  { name: 'Highlights or Balayage - Mid-length Hair', duration: '1h 5min', price: '79 €' },
+  { name: 'Highlights or Balayage - Long Hair', duration: '1h 5min', price: '110 €' },
+  { name: 'Highlights or Balayage - Very Long Hair', duration: '1h 5min', price: 'Sur Devis' },
+  { name: 'Bleaching - Short Hair', duration: '1h 5min', price: '100 €' },
+  { name: 'Bleaching - Mid-length Hair', duration: '1h 5min', price: '120 €' },
+  { name: 'Bleaching - Long Hair', duration: '1h 5min', price: '140 €' },
 ];

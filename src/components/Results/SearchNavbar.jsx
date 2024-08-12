@@ -1,98 +1,153 @@
-import React, { useState } from 'react';
-import Drawer from '@mui/material/Drawer';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import { Link } from 'react-router-dom';
 
-export default function SearchNavbar() {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+function SearchNavbar() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeField, setActiveField] = useState(null);
+  const [salonName, setSalonName] = useState('');
+  const [location, setLocation] = useState('');
+  const [date, setDate] = useState('');
+  const navbarRef = useRef(null);
 
-    const toggleDrawer = (open) => () => {
-        setIsDrawerOpen(open);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsExpanded(false);
+        setActiveField(null);
+      }
     };
 
-    const drawerContent = (
-        <div className="p-4 space-y-4">
-            <Link to={'/category/Coiffeur'} className='block text-black'>Coiffeur</Link>
-            <Link to={'/category/Barbier'} className='block text-black'>Barbier</Link>
-            <Link to={'/category/Manucure'} className='block text-black'>Manucure</Link>
-            <Link to={'/category/Institutdebeauté'} className='block text-black'>Institut de beauté</Link>
-            <button className="w-full bg-gray-50 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
-                Ajoutez votre établissement
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        setIsExpanded(false);
+        setActiveField(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscKey);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, []);
+
+  const handleFieldFocus = (field) => {
+    setIsExpanded(true);
+    setActiveField(field);
+  };
+
+  return (
+    <nav className="bg-white shadow-md" ref={navbarRef}>
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="text-xl font-bold">PLANITY</div>
+          <motion.div
+            className="flex-grow mx-4 flex justify-center"
+            initial={false}
+            animate={{
+              width: isExpanded ? '80%' : '50%',
+              y: isExpanded ? 12 : 0,
+            }}
+            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+          >
+            <motion.div
+              className="flex items-center bg-gray-100 rounded-full overflow-hidden border border-gray-300"
+              initial={false}
+              animate={{
+                height: isExpanded ? '4rem' : '3rem',
+              }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+            >
+              <TextField
+                variant="standard"
+                placeholder="Coiffeurs"
+                value={salonName}
+                onChange={(e) => setSalonName(e.target.value)}
+                onFocus={() => handleFieldFocus('Coiffeurs')}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                  disableUnderline: true,
+                }}
+                className="py-2 px-4 bg-transparent outline-none transition-all duration-300 text-center"
+                sx={{
+                  flexGrow: isExpanded ? 1 : 0,
+                  width: isExpanded ? 'auto' : '7rem',
+                }}
+              />
+              <div className="h-6 w-px bg-gray-300" />
+              <TextField
+                variant="standard"
+                placeholder="Lyon"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                onFocus={() => handleFieldFocus('Lyon')}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationOnIcon />
+                    </InputAdornment>
+                  ),
+                  disableUnderline: true,
+                }}
+                className="py-2 px-4 bg-transparent outline-none transition-all duration-300 text-center"
+                sx={{
+                  flexGrow: isExpanded ? 1 : 0,
+                  width: isExpanded ? 'auto' : '7rem',
+                }}
+              />
+              <div className="h-6 w-px bg-gray-300" />
+              <TextField
+                variant="standard"
+                placeholder="À tout moment"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                onFocus={() => handleFieldFocus('À tout moment')}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CalendarTodayIcon />
+                    </InputAdornment>
+                  ),
+                  disableUnderline: true,
+                }}
+                className="py-2 px-4 bg-transparent outline-none transition-all duration-300 text-center"
+                sx={{
+                  flexGrow: isExpanded ? 1 : 0,
+                  width: isExpanded ? 'auto' : '7rem',
+                }}
+              />
+              <IconButton
+                className="p-2 bg-black text-white rounded-full hover:bg-gray-800 transition duration-300"
+                sx={{ marginLeft: 2 }}
+              >
+                <SearchIcon />
+              </IconButton>
+            </motion.div>
+          </motion.div>
+          <div className="flex space-x-4">
+            <button className="px-4 py-2 text-gray-600 hover:text-gray-800">
+              Ajoutez votre établissement
             </button>
-            <button className="w-full bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
-                Se connecter
+            <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition duration-300">
+              Se connecter
             </button>
+          </div>
         </div>
-    );
-
-    return (
-        <div className="flex justify-between lg:justify-around items-center p-4 bg-white shadow-md text-black sticky top-0 z-[1000]">
-            {/* Menu Button for Small and Medium Screens */}
-            <div className='block lg:hidden'>
-                <IconButton
-                    edge="start"
-                    sx={{ color: 'black' }}
-                    aria-label="menu"
-                    onClick={toggleDrawer(true)}
-                    fontSize="large"
-                >
-                    <MenuIcon />
-                </IconButton>
-            </div>
-            <Link to={'/'}>
-                <svg id="nav-item-planity-logo" width="140px" viewBox="0 0 140 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M8.8421 0.631592H0V15.3684H2.94737V12.4211H8.8421C12.0973 12.4211 14.7368 9.78153 14.7368 6.52633C14.7368 3.27112 12.0973 0.631592 8.8421 0.631592ZM8.8421 9.4737H2.94737V3.57896H8.8421C10.4697 3.57896 11.7895 4.89873 11.7895 6.52633C11.7895 8.15393 10.4697 9.4737 8.8421 9.4737ZM50.1053 0.631592L42.7368 15.3684H45.6842L47.1579 12.4211H56L57.4737 15.3684H60.421L53.0526 0.631592H50.1053ZM23.5789 0.631592H26.5263V12.4211H35.3684V15.3684H23.5789V0.631592ZM94.3158 0.631592H91.3684V15.3684H94.3158V0.631592ZM103.158 3.57896V0.631592H117.895V3.57896H112V15.3684H109.053V3.57896H103.158ZM137.053 0.631592L132.632 7.26317L128.211 0.631592H125.263L131.158 9.4737V15.3684H134.105V9.4737L140 0.631592H137.053ZM48.6316 9.4737L51.5789 3.57896L54.5263 9.4737H48.6316ZM70.7369 0.631592L79.579 10.9474V0.631592H82.5263V15.3684H79.579L70.7369 5.05264V15.3684H67.7895V0.631592H70.7369Z" fill="currentColor"></path>
-                </svg>
-            </Link>
-
-            {/* Links and Buttons for Larger Screens */}
-            <div className="hidden lg:block font-semibold space-x-6 text-black text-sm">
-                <Link to='/category/Coiffeur' className='relative group'>Coiffeur
-                    <div className='absolute left-0 bottom-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
-                </Link>
-                <Link to='/category/Barbier' className='relative group'>Barbier
-                    <div className='absolute left-0 bottom-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
-                </Link>
-                <Link to='/category/Manucure' className='relative group'>Manucure
-                    <div className='absolute left-0 bottom-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
-                </Link>
-                <Link to='/category/Institutdebeauté' className='relative group'>Institut de beauté
-                    <div className='absolute left-0 bottom-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
-                </Link>
-            </div>
-
-            <div className="hidden lg:block">
-                <button className="bg-gray-50 mr-2 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
-                    Ajoutez votre établissement
-                </button>
-                <button className="bg-black ml-2 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
-                    Se connecter
-                </button>
-            </div>
-
-            <div className='block lg:hidden'>
-                <button className="bg-black ml-2 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
-                    <PersonOutlineOutlinedIcon fontSize='medium' />
-                </button>
-            </div>
-
-            {/* Drawer for Small and Medium Screens */}
-            <Drawer className='block lg:hidden' anchor="left" open={isDrawerOpen} onClose={toggleDrawer(false)}>
-                <div className='p-4 space-y-4'>
-                    <IconButton
-                        edge="start"
-                        sx={{ color: 'black' }}
-                        aria-label="menu"
-                        onClick={toggleDrawer(false)}
-                        fontSize="large"
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                </div>
-                {drawerContent}
-            </Drawer>
-        </div>
-    );
+      </div>
+    </nav>
+  );
 }
+
+export default SearchNavbar;

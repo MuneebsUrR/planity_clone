@@ -5,6 +5,7 @@ import Header from '../components/Home/Header';
 import Footer from '../components/Home/Footer';
 import { data } from '../lib/data';
 import { useParams } from 'react-router-dom';
+import SearchNavbar from '../components/Results/SearchNavbar';
 
 export default function Results() {
   const { type } = useParams();
@@ -13,7 +14,8 @@ export default function Results() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-      <Header isnothome={true} needAnimation={false} />
+        <Header isnothome={true} needAnimation={false} />
+        {/* <SearchNavbar /> */}
 
         <div className="flex flex-grow">
           {/* Cards Section */}

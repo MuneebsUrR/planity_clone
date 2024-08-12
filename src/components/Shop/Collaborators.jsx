@@ -11,7 +11,7 @@ const getInitials = (name) => {
 
 const Collaborator = ({ name, image, title }) => (
     <div className="flex flex-col items-center shadow-sm border rounded-lg p-2">
-        <div className="w-32 h-32 rounded-lg overflow-hidden mb-2 flex items-center justify-center bg-black text-white">
+        <div className="w-full h-32 rounded-lg overflow-hidden mb-2 flex items-center justify-center bg-black text-white">
             {image ? (
                 <img src={image} alt={name} className="w-full h-full object-cover" />
             ) : (
