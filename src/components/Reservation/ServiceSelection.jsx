@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ServiceChoice from '../Shop/ServiceChoice'; // Adjust the path based on your file structure
 import { selected_services } from '../../lib/data';
 
@@ -13,29 +13,33 @@ const allServices = [
 ];
 
 function ServiceSelection() {
-    const [services, setServices] = useState(selected_services || []); // Initial service selection
+    const [selectedServices, setSelectedServices] = useState(selected_services || []);
+
     const [isServiceChoiceVisible, setIsServiceChoiceVisible] = useState(false); // Control visibility
 
-    const addService = (selectedService) => {
-        setServices([...services, selectedService]);
-        setIsServiceChoiceVisible(false); // Hide ServiceChoice component after adding
+    const removeService = (name) => {
+
+        setSelectedServices(selectedServices.filter((service) => service.name !== name));
+
     };
 
-    const removeService = (id) => {
-        setServices(services.filter(service => service.id !== id));
-    };
+    useEffect(() => {
+        setSelectedServices(selected_services);
+
+    }, [selected_services, selectedServices])
+
 
     return (
-        <div className="p-6">
-            <h1 className="text-lg font-semibold mb-4">1. Prestation sélectionnée</h1>
-            {services.map((service) => (
-                <div key={service.id} className="mb-4 p-4 bg-white rounded-lg shadow-md flex items-center justify-between">
-                    <div>
+        <div className=" mt-8">
+            <h1 className="text-2xl font-semibold mb-4"><span className='text-blue-500'>1.</span> Prestation sélectionnée</h1>
+            {selectedServices.map((service, index) => (
+                <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md flex items-center justify-between">
+                    <div className='text-sm'>
                         <p className="font-semibold">{service.name}</p>
                         <p className="text-gray-500">{service.duration} · {service.price}</p>
                     </div>
                     <div className="flex items-center">
-                        <button onClick={() => removeService(service.id)} className="text-blue-600 hover:underline text-sm">
+                        <button onClick={() => removeService(service.name)} className="text-blue-600 hover:underline text-sm">
                             Supprimer
                         </button>
                     </div>
@@ -43,7 +47,7 @@ function ServiceSelection() {
             ))}
 
             <button
-                onClick={() => setIsServiceChoiceVisible(true)}
+                onClick={() => setIsServiceChoiceVisible(!isServiceChoiceVisible)}
                 className="flex items-center text-white bg-black px-4 py-2 rounded hover:bg-gray-800 transition-colors"
             >
                 <span className="mr-2">+</span> Ajouter une prestation à la suite
@@ -51,7 +55,7 @@ function ServiceSelection() {
 
             {isServiceChoiceVisible && (
                 <div className="mt-6">
-                    <ServiceChoice allServices={allServices} onServiceSelect={addService} />
+                    <ServiceChoice allServices={allServices} />
                 </div>
             )}
         </div>
