@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
+
 const Scheduler = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -13,6 +14,13 @@ const Scheduler = () => {
         { name: 'lundi', date: '21 oct.' },
         { name: 'mardi', date: '22 oct.' },
         { name: 'mercredi', date: '23 oct.' },
+        { name: 'jeudi', date: '24 oct.' },
+        { name: 'vendredi', date: '25 oct.' },
+        { name: 'samedi', date: '26 oct.' },
+        { name: 'dimanche', date: '27 oct.' },
+        { name: 'lundi', date: '28 oct.' },
+        { name: 'mardi', date: '29 oct.' },
+        { name: 'mercredi', date: '30 oct.' },
     ];
 
     const times = [
@@ -34,49 +42,95 @@ const Scheduler = () => {
         }
     };
 
+
+
     return (
-        <div className="p-4 bg-white rounded-lg shadow-md mb-10">
-            
-            <div className="flex justify-around items-start">
-                <button
-                    onClick={handlePrevious}
-                    disabled={currentIndex === 0}
-                    className="text-purple-500 disabled:text-gray-300"
-                >
-                    <ArrowBackIosIcon />
-                </button>
-                <div className="overflow-hidden">
-                    <div
-                        className="flex transition-transform duration-500"
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        <>
+            <div className="p-4 bg-white rounded-lg shadow-md mb-10 hidden md:block">
+
+                <div className="flex justify-around items-start">
+                    <button
+                        onClick={handlePrevious}
+                        disabled={currentIndex === 0}
+                        className="text-blue-500 disabled:text-gray-300"
                     >
-                        {days.map((day, index) => (
-                            <div key={index} className="flex flex-col items-center min-w-[100px]">
-                                <div className="font-medium text-gray-700">{day.name}</div>
-                                <div className="text-sm text-gray-500">{day.date}</div>
-                                <div className="mt-2 space-y-1">
-                                    {times.map((time, idx) => (
-                                        <div
-                                            key={idx}
-                                            className="px-5 py-1 bg-gray-100 hover:bg-gray-300 rounded-md text-center text-sm"
-                                        >
-                                            {time}
-                                        </div>
-                                    ))}
+                        <ArrowBackIosIcon />
+                    </button>
+                    <div className="overflow-hidden">
+                        <div
+                            className="flex transition-transform duration-500"
+                            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        >
+                            {days.map((day, index) => (
+                                <div key={index} className="flex flex-col items-center min-w-[100px]">
+                                    <div className="font-medium text-gray-700">{day.name}</div>
+                                    <div className="text-sm text-gray-500">{day.date}</div>
+                                    <div className="mt-2 space-y-1">
+                                        {times.map((time, index) => (
+
+                                            <div
+                                                key={index}
+                                               
+                                                className="cursor-pointer px-5 py-1 bg-gray-100 hover:bg-gray-300 rounded-md text-center text-sm"
+                                            >
+                                                {time}
+                                            </div>
+
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
+                    <button
+                        onClick={handleNext}
+                        className="text-blue-500 disabled:text-gray-300"
+                        disabled={currentIndex === Math.floor(days.length / 7)}
+                    >
+                        <ArrowForwardIosIcon />
+                    </button>
                 </div>
-                <button
-                    onClick={handleNext}
-                    className="text-purple-500 disabled:text-gray-300"
-                >
-                    <ArrowForwardIosIcon />
-                </button>
+
             </div>
-        </div>
+
+            {/* For the small screens */}
+            <div className="p-4 bg-white rounded-lg shadow-md mb-10 block md:hidden">
+                <div className="flex justify-around items-start">
+                    <button
+                        onClick={handlePrevious}
+                        disabled={currentIndex === 0}
+                        className="text-blue-500 disabled:text-gray-300"
+                    >
+                        <ArrowBackIosIcon />
+                    </button>
+                    <div className="flex flex-col items-center min-w-[200px]">
+                        <div className="font-medium text-gray-700">{days[currentIndex].name}</div>
+                        <div className="text-sm text-gray-500">{days[currentIndex].date}</div>
+                        <div className="mt-2 grid grid-cols-3 gap-3 ">
+                            {times.map((time, idx) => (
+                                <div
+                                    key={idx}
+                                    className="px-5 py-1  bg-gray-100 hover:bg-gray-300 rounded-md text-center text-sm"
+                                >
+                                    {time}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <button
+                        onClick={handleNext}
+                        className="text-blue-500 disabled:text-gray-300"
+                        disabled={currentIndex === days.length - 1}
+                    >
+                        <ArrowForwardIosIcon />
+                    </button>
+                </div>
+            </div>
+
+        </>
     );
 };
 
 export default Scheduler;
+
+

@@ -249,4 +249,7 @@ export const data = {
   ],
 };
 
-export const selected_services=[]
+
+//just dummy arrays for reservation information later on it can be replaced with state management
+export const selected_services = []
+export const selected_time = []

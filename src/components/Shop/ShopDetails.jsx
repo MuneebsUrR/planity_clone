@@ -50,7 +50,7 @@ export default function ShopDetails() {
         <ImageGallery mainImage={mainImage} smallImages={smallImages} />
 
         <section ref={serviceSectionRef}>
-          <h2 className='font-semibold text-2xl mt-8'>Réserver en ligne pour un RDV chez Iris Adonia</h2>
+          <h2 className='font-semibold text-2xl mt-10'>Réserver en ligne pour un RDV chez Iris Adonia</h2>
           <p className='text-gray-500'>24h/24 - Paiement sur place - Confirmation immédiate</p>
           <h2 className='text-2xl font-semibold mt-6'>Choix de la prestation</h2>
         </section>
