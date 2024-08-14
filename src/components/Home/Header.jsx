@@ -73,7 +73,7 @@ export default function Header({ isnothome, needAnimation, needSearchBar = false
                 Ajoutez votre établissement
             </button>
             <Link to={'/login'}>
-                <button className="w-full bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-900">
+                <button className="w-full bg-black text-white px-4 py-2 mt-2 rounded-md text-sm font-medium hover:bg-gray-900">
                     Se connecter
                 </button>
             </Link>

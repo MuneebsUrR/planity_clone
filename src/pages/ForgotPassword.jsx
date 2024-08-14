@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import bg from '../assets/images/img2.jpg'
+import Header from '../components/Home/Header';
 
 function ForgotPassword() {
   return (
+    <>
+     <Header isnothome={true} needAnimation={true} needSearchBar={false} />
     <div className="flex flex-col md:flex-row h-screen bg-gray-100">
+     
       <div className="w-full md:w-1/2 p-6 md:p-16 xl:p-40 flex flex-col justify-center">
         <h2 className="text-2xl font-bold mb-6 text-center">Mot de passe oublié ?</h2>
         <form className="space-y-4">
@@ -56,6 +60,7 @@ function ForgotPassword() {
         />
       </div>
     </div>
+    </>
   );
 };
 
