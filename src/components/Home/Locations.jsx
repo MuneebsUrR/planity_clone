@@ -53,7 +53,7 @@ function Locations() {
                     <div key={index}>
                         <h3 className="text-md font-semibold text-gray-900 ">{category.title}</h3>
                         <p className="text-sm text-gray-500 mb-4 ">{category.description}</p>
-                        <ul className="text-gray-800 space-y-1 text-sm">
+                        <ul className="text-gray-800 space-y-1 text-sm grid grid-cols-2 gap-4 md:gap-0 md:grid-cols-1">
                             {category.cities.map((city, cityIndex) => (
                                 <li key={cityIndex}>{city}</li>
                             ))}
