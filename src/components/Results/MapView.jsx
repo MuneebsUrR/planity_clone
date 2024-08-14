@@ -2,9 +2,9 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { data } from "../../lib/data"; // Import the data file
+import { data } from "../../lib/data"; 
 
-// Import marker images from Leaflet's package
+
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -30,13 +30,13 @@ const MapView = ({ DefaultLongitude = 2.3522, DefaultLatitude = 48.8566, zoomVal
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      {/* Add markers for each category */}
+      
       {Object.keys(data).map((category) =>
         data[category].map((location) => (
           <Marker
             key={location.id}
             position={[location.lat, location.lng]}
-            icon={customMarkerIcon} // Apply the custom icon here
+            icon={customMarkerIcon} 
           >
             <Popup>
               <strong>{location.name}</strong><br />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ServiceChoice from '../Shop/ServiceChoice'; // Adjust the path based on your file structure
+import ServiceChoice from '../Shop/ServiceChoice'; 
 import { selected_services } from '../../lib/data';
 
 const allServices = [

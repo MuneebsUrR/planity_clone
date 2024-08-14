@@ -102,7 +102,7 @@ const Scheduler = () => {
                     </div>
 
 
-
+                    {/* For small screens */}
                     <div className="p-4 bg-white rounded-lg shadow-md mb-10 block md:hidden">
                         <div className="flex justify-around items-start">
                             <button
@@ -119,6 +119,7 @@ const Scheduler = () => {
                                     {times.map((time, idx) => (
                                         <div
                                             key={idx}
+                                            onClick={() => { setScheduleDetails({ name: days[currentIndex].name, date: days[currentIndex].date, time: time }); setOpenScheduler(false) }}
                                             className="px-5 py-1  bg-gray-100 hover:bg-gray-300 rounded-md text-center text-sm"
                                         >
                                             {time}
