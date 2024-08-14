@@ -19,7 +19,7 @@ export default function Results() {
         <div className="flex flex-grow">
           {/* Cards Section */}
           <div className="w-full lg:w-1/2 h-auto bg-gray-100">
-          <div className='mt-2'>
+          <div className='mt-2 block lg:hidden'>
 
             <MobileSearchBar />
           </div>
