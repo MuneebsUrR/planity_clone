@@ -37,7 +37,7 @@ function ServiceChoice({ allServices }) {
               <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-2 sm:mt-0">
                 <p className="text-sm text-gray-500">{service.duration}</p>
                 <span className="font-medium">{service.price}</span>
-                <button className="px-3 py-1 font-semibold bg-black text-white text-sm rounded hover:bg-gray-800 transition-colors mt-2 sm:mt-0">
+                <button className="px-3 py-2 font-semibold bg-black text-white text-sm rounded hover:bg-gray-800 transition-colors mt-2 sm:mt-0">
                   Choisir
                 </button>
               </div>

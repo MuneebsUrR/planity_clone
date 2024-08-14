@@ -120,7 +120,7 @@ export default function Header({ isnothome, needAnimation, needSearchBar = false
             {needSearchBar &&
                 <div
                     ref={searchBarRef}
-                    className={`transition-all duration-300 ${isExpanded ? 'w-[60%]' : 'w-[40%]'}`}
+                    className={`shadow rounded-lg transition-all duration-300 ${isExpanded ? 'w-[55%] mt-5' : 'overflow-hidden w-[40%]'}`}
                     onClick={handleClick}
                 >
                     <NavbarSearchBar />
