@@ -69,6 +69,9 @@ export default function Header({ isnothome, needAnimation, needSearchBar = false
             <Link onClick={() => setIsDrawerOpen(false)} to={'/category/Barbier'} className='block text-black'>Barbier</Link>
             <Link onClick={() => setIsDrawerOpen(false)} to={'/category/Manucure'} className='block text-black'>Manucure</Link>
             <Link onClick={() => setIsDrawerOpen(false)} to={'/category/Institutdebeauté'} className='block text-black'>Institut de beauté</Link>
+
+           
+          
             <button className="w-full bg-gray-50 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
                 Ajoutez votre établissement
             </button>
@@ -120,7 +123,7 @@ export default function Header({ isnothome, needAnimation, needSearchBar = false
             {needSearchBar &&
                 <div
                     ref={searchBarRef}
-                    className={`shadow rounded-lg transition-all duration-300 ${isExpanded ? 'w-[55%] mt-5' : 'overflow-hidden w-[40%]'}`}
+                    className={`shadow rounded-lg transition-all duration-300 ${isExpanded ? 'w-[55%] mt-5' : 'overflow-hidden w-[38%]'}`}
                     onClick={handleClick}
                 >
                     <NavbarSearchBar />
