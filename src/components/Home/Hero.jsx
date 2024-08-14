@@ -10,7 +10,7 @@ const Hero = () => {
                 <h1 className="text-white text-4xl font-semibold mb-5">Réservez en beauté</h1>
                 <p className="text-white mb-5">Simple • Immédiat • 24h/24</p>
             </div>
-            <section className='p-3'>
+            <section className='p-3 max-w-4xl mx-auto'>
 
             <Searchbar />
             </section>

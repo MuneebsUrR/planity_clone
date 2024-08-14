@@ -5,8 +5,7 @@ import Header from '../components/Home/Header';
 import Footer from '../components/Home/Footer';
 import { data } from '../lib/data';
 import { useParams } from 'react-router-dom';
-import SearchNavbar from '../components/Results/SearchNavbar';
-
+import Searchbar from '../components/Home/Searchbar';
 export default function Results() {
   const { type } = useParams();
   const shops = data[type];
@@ -14,12 +13,12 @@ export default function Results() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <Header isnothome={true} needAnimation={false} />
-        {/* <SearchNavbar /> */}
+       <Header isnothome={true} needAnimation={false} />
 
         <div className="flex flex-grow">
           {/* Cards Section */}
           <div className="w-full lg:w-1/2 h-auto bg-gray-100">
+          
             <div className='p-6'>
               <p className='font-semibold text-lg'>Sélectionnez un salon</p>
               <p className='font-semibold text-gray-500'>Les meilleurs salons et instituts aux alentours de Paris : Réservation en ligne</p>

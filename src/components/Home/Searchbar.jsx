@@ -42,19 +42,19 @@ export default function Searchbar() {
     // Function to handle navigation
     const handleSearch = () => {
         console.log(searchQuery, locationQuery);
-        if (searchQuery.length>0 && locationQuery.length>0) {
+        if (searchQuery.length > 0 && locationQuery.length > 0) {
             // If both searchQuery and locationQuery are filled
             navigate(`/category/${searchQuery}/${locationQuery}`);
 
-        }else{
+        } else {
             navigate(`/category/${searchQuery}`);
         }
-        
+
     };
 
     return (
         <div>
-            <div className="flex items-center bg-white rounded-lg shadow p-2 max-w-4xl mx-auto">
+            <div className="flex items-center bg-white rounded-lg shadow p-2">
                 <div className="flex-1 mx-2 relative">
                     <Autocomplete
                         freeSolo
@@ -127,3 +127,4 @@ export default function Searchbar() {
         </div>
     );
 }
+

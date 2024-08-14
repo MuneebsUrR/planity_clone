@@ -30,7 +30,7 @@ export default function Category() {
         <h1 className='text-4xl font-semibold text-center mb-10'>
           Réserver en ligne un RDV avec un coiffeur {type}
         </h1>
-        <section className='p-4'>
+        <section className='p-4 max-w-4xl mx-auto'>
 
           <Searchbar />
         </section>
