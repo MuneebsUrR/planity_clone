@@ -13,7 +13,7 @@ export default function Results() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-       <Header isnothome={true} needAnimation={false} />
+       <Header isnothome={true} needAnimation={false} needSearchBar={true} />
 
         <div className="flex flex-grow">
           {/* Cards Section */}

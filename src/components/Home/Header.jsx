@@ -1,16 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-
 import { Link, useNavigate } from 'react-router-dom';
+import { NavbarSearchBar } from './Searchbar';
 
-export default function Header({ isnothome, needAnimation }) {
+export default function Header({ isnothome, needAnimation, needSearchBar = false }) {
     const navigate = useNavigate();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const searchBarRef = useRef(null);
 
+    const handleClick = () => {
+        setIsExpanded(true);
+    };
+
+    // Close search bar on Escape key press and click outside
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                setIsExpanded(false);
+            }
+        };
+
+        const handleClickOutside = (event) => {
+            if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+                setIsExpanded(false);
+            }
+        };
+
+        // Add event listeners
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('mousedown', handleClickOutside);
+
+        // Cleanup the event listeners on component unmount
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const handleScroll = () => {
         setScrolled(window.scrollY > 35); // Adjust scroll threshold as needed
@@ -33,7 +63,6 @@ export default function Header({ isnothome, needAnimation }) {
     const toggleDrawer = (open) => () => {
         setIsDrawerOpen(open);
     };
-
     const drawerContent = (
         <div className="p-4 space-y-4">
             <Link onClick={() => setIsDrawerOpen(false)} to={'/category/Coiffeur'} className='block text-black'>Coiffeur</Link>
@@ -73,7 +102,7 @@ export default function Header({ isnothome, needAnimation }) {
             </Link>
 
             {/* Links and Buttons for Larger Screens */}
-            <div className={`hidden lg:block font-semibold space-x-6 ${(scrolled || isnothome) ? 'text-black' : 'text-white'} text-sm`}>
+            {!needSearchBar && <div className={`hidden lg:block font-semibold space-x-6 ${(scrolled || isnothome) ? 'text-black' : 'text-white'} text-sm`}>
                 <Link to='/category/Coiffeur' className='relative group'>Coiffeur
                     <div className='absolute left-0 bottom-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
                 </Link>
@@ -86,8 +115,18 @@ export default function Header({ isnothome, needAnimation }) {
                 <Link to='/category/Institutdebeauté' className='relative group'>Institut de beauté
                     <div className='absolute left-0 bottom-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
                 </Link>
-            </div>
+            </div>}
 
+            {needSearchBar &&
+                <div
+                    ref={searchBarRef}
+                    className={`transition-all duration-300 ${isExpanded ? 'w-[60%]' : 'w-[40%]'}`}
+                    onClick={handleClick}
+                >
+                    <NavbarSearchBar />
+                </div>
+
+            }
 
             <div className="hidden lg:block">
                 <button className="bg-gray-50 mr-2 text-gray-700 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200">
